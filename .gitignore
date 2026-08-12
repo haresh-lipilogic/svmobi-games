@@ -1,0 +1,30 @@
+# Environment secrets (rancard_telecel uses a real .env; .env.example stays tracked)
+.env
+*.env
+!*.env.example
+
+# Runtime-generated click/charge logs (PII: IP, user-agent) — keep the folder's .htaccess
+**/logs/*
+!**/logs/.htaccess
+
+# Image / video assets
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+*.ico
+*.bmp
+*.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
+*.mp3
+*.wav
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
