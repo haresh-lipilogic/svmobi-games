@@ -61,5 +61,5 @@ $insert_userlog = sprintf(
 );
 $res_userlog = $conn1->query($insert_userlog);
 
-header('Location: https://11070.enterprise.gamezop.com/?gzp-puid=' . urlencode($hashuser));
+header('Location: https://11324.enterprise.umogames.com/?gzp-puid=' . urlencode($hashuser));
 exit;
