@@ -1,0 +1,27 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ test ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy project to Windows XAMPP server via rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -rlvz --delete --checksum --omit-dir-times --blocking-io
+          path: ./
+          remote_path: /cygdrive/c/xampp/htdocs/svmobi-games
+          remote_host: ${{ secrets.WIN_SSH_HOST }}
+          remote_port: ${{ secrets.WIN_SSH_PORT }}
+          remote_user: ${{ secrets.WIN_SSH_USER }}
+          remote_key: ${{ secrets.WIN_SSH_KEY }}
+          # Use this only if your SSH key is passphrase-protected:
+          # remote_key_pass: ${{ secrets.WIN_SSH_KEY_PASS }}

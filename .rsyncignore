@@ -1,0 +1,49 @@
+# Sensitive configuration and environment files
+.env
+.env.*
+*.env
+!*.env.example
+**/.env
+**/*.env
+**/.env.*
+
+# Runtime-generated logs and debug data
+**/logs/**
+!**/logs/.htaccess
+**/tmp/**
+**/cache/**
+*.log
+*.pid
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# Git metadata and local dev folders
+.git/
+.vscode/
+node_modules/
+vendor/
+__pycache__/
+
+# Optional: uncomment only if you do NOT want to sync media assets
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.webp
+# *.svg
+# *.ico
+# *.bmp
+# *.mp4
+# *.mov
+# *.avi
+# *.webm
+# *.mkv
+# *.mp3
+# *.wav
