@@ -1,0 +1,27 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy project to Linux server via rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -rlvz --delete --checksum --omit-dir-times --blocking-io
+          path: ./
+          remote_path: /cygdrive/c/xampp/htdocs/svmobi-games
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_port: ${{ secrets.SSH_PORT }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+          # Use only if your SSH key is passphrase-protected:
+          # remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
